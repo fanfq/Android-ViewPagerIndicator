@@ -68,7 +68,8 @@ public class CirclePageIndicator extends View implements PageIndicator {
     }
 
     public CirclePageIndicator(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.vpiCirclePageIndicatorStyle);
+        //this(context, attrs, R.attr.vpiCirclePageIndicatorStyle);
+        this(context, attrs, 0);
     }
 
     public CirclePageIndicator(Context context, AttributeSet attrs, int defStyle) {
@@ -363,6 +364,8 @@ public class CirclePageIndicator extends View implements PageIndicator {
         }
         if (view.getAdapter() == null) {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
+        }else{
+        		view.getAdapter().notifyDataSetChanged();
         }
         mViewPager = view;
         mViewPager.setOnPageChangeListener(this);
